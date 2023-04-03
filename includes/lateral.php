@@ -29,10 +29,10 @@
             <label for="email">Email</label>
             <input type="email" name="email">
 
-            <label for="password">Contraseña</label>
-            <input type="password" name="password">
+            <label for="contraseña">Contraseña</label>
+            <input type="password" name="contraseña">
 
-            <input type="submit" value="Registrar">
+            <input type="submit" name="submit" value="Registrar">
 
         </form>
 

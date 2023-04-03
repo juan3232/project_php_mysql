@@ -6,7 +6,7 @@ git fetch -> actualiza el remoto para saber si hubo cambios comparado a tu local
 git pull -> descarga los cambios del remoto
 ---->
 <?php require_once 'includes/cabecera.php'; ?>
-<div id="contenedor">
+
     <?php require_once 'includes/lateral.php';  ?>
     <!---caja principal-->
     <div id="principal">
@@ -41,8 +41,12 @@ git pull -> descarga los cambios del remoto
             </p>
         </article>
 
-    </div>
-</div><!----fin del contenedor --->
+        <div id="ver-todas">
+            <a href="">ver todas las entradas</a>
+        </div>
+    </div><!---fin principal--->
+
+    
 
 
 <?php require_once 'includes/pie.php'; ?>
