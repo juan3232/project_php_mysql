@@ -8,5 +8,7 @@
 $db = mysqli_connect($servidor, $usuario, $password, $basededatos);
 
 
+//inisiar  sesion 
 
+session_start();
 
