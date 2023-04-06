@@ -10,5 +10,7 @@ $db = mysqli_connect($servidor, $usuario, $password, $basededatos);
 
 //inisiar  sesion 
 
-session_start();
+if(!isset($_SESSION)){
+    session_start();
+   }
 
