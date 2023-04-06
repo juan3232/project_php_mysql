@@ -1,18 +1,27 @@
-<?php require_once 'includes/helpers.php'; ?>
 <!---Barra lateral-->
 <aside id="sidebar">
 
-<?php if(isset($_SESSION['usuario'])): ?>
-		<div id="usuario-logueado" class="bloque">
-        <h3>Bienvenido, <?=$_SESSION['usuario']['nombre'].' '.$_SESSION['usuario']['apellidos'];?></h3>
-        <?php  var_dump($_SESSION['usuario']);  ?>
+    <?php if (isset($_SESSION['usuario'])) : ?>
+        <div id="usuario-logueado" class="bloque">
+            <h3>Bienvenido, <?= $_SESSION['usuario']['nombre'] . ' ' . $_SESSION['usuario']['apellidos']; ?></h3>
+            <!----Botones--->
+            <a href="cerrar.php" class="boton boton-verde">Crear entradas</a>
+            <a href="cerrar.php" class="boton ">Crear Categoria</a>
+            <a href="cerrar.php" class="boton boton-naranja">Mis datos</a>
+            <a href="cerrar.php" class="boton boton-rojo">cerrar cesion</a>
         </div>
-	<?php endif; ?>
-
+    <?php endif; ?>
+    
+    <?php if (!isset($_SESSION['usuario'])) : ?>
     <div id="login.php" class="bloque">
         <h3>Identificate</h3>
         <form action="login.php" method="POST">
 
+            <?php if (isset($_SESSION['error_login'])) : ?>
+                <div id="alerta alerta-error">
+                     <?= $_SESSION['error_login'];?>
+                </div>
+            <?php endif; ?>
 
             <label for="email">Email</label>
             <input type="email" name="email">
@@ -60,10 +69,11 @@
     <label for="password">Contraseña</label>
     <input type="password" name="password">
     <?php echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'password') : ''; ?>
-   
+
     <input type="submit" name="submit" value="Registrar">
 
 </form>
 <?php borrarErrores(); ?>
 </div>
+<?php  endif; ?>
 </aside>

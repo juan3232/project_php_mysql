@@ -7,46 +7,38 @@ git pull -> descarga los cambios del remoto
 ---->
 <?php require_once 'includes/cabecera.php'; ?>
 
-    <?php require_once 'includes/lateral.php';  ?>
-    <!---caja principal-->
-    <div id="principal">
-        <h1>Ultimas entradas</h1>
-        <article class="entrada">
-            <h2>Titulo de mi entrada</h2>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio,
-                inventore maiores hic minima nostrum explicabo quia. Expedita distinctio fugit
-                numquam impedit sapiente
-                cumque harum tempora similique corporis. Impedit, nihil saepe.
-            </p>
-        </article>
+<?php require_once 'includes/lateral.php';  ?>
+<!---caja principal-->
+<div id="principal">
+    <h1>Ultimas entradas</h1>
 
-        <article class="entrada">
-            <h2>Titulo de mi entrada</h2>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio,
-                inventore maiores hic minima nostrum explicabo quia. Expedita distinctio fugit
-                numquam impedit sapiente
-                cumque harum tempora similique corporis. Impedit, nihil saepe.
-            </p>
-        </article>
+   <?php 
+		$entradas = conseguirEntradas($db, true);
+		if(!empty($entradas)):
+			while($entrada = mysqli_fetch_assoc($entradas)):
+	?>
+				<article class="entrada">
+					<a href="entrada.php?id=<?=$entrada['id']?>">
+						<h2><?=$entrada['titulo']?></h2>
+						<span class="fecha"><?=$entrada['categoria'].' | '.$entrada['fecha']?></span>
+						<p>
+							<?=substr($entrada['descripcion'], 0, 20000)."..."?>
+						</p>
+					</a>
+				</article>
+	<?php
+			endwhile;
+		endif;
+	?>
 
-        <article class="entrada">
-            <h2>Titulo de mi entrada</h2>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio,
-                inventore maiores hic minima nostrum explicabo quia. Expedita distinctio fugit
-                numquam impedit sapiente
-                cumque harum tempora similique corporis. Impedit, nihil saepe.
-            </p>
-        </article>
 
-        <div id="ver-todas">
-            <a href="">ver todas las entradas</a>
-        </div>
-    </div><!---fin principal--->
 
-    
+    <div id="ver-todas">
+        <a href="">ver todas las entradas</a>
+    </div>
+</div><!---fin principal--->
+
+
 
 
 <?php require_once 'includes/pie.php'; ?>
