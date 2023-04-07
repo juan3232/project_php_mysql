@@ -78,3 +78,14 @@ if(isset($_POST)){
 }
 
 header('Location: index.php');
+
+
+
+
+$numero = 10;
+
+if($numero <=10){
+	echo "es  menor  que dies";
+}else{
+	echo "es mayor a dies";
+}
