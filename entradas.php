@@ -1,19 +1,12 @@
-<!----
-git add * -> agrega los cambios al stash
-git commit -m "descripcion del cambio" -> acomete los cambios
-git push  -> sube los cambios al remoto
-git fetch -> actualiza el remoto para saber si hubo cambios comparado a tu local
-git pull -> descarga los cambios del remoto
----->
-<?php require_once 'includes/cabecera.php'; ?>
+ <?php require_once 'includes/cabecera.php'; ?>
 
 <?php require_once 'includes/lateral.php';  ?>
 <!---caja principal-->
 <div id="principal">
-    <h1>Ultimas entradas</h1>
+    <h1>Todas las entradas</h1>
 
     <?php
-    $entradas = conseguirEntradas($db, true);
+    $entradas = conseguirEntradas($db);
     if (!empty($entradas)) :
         while ($entrada = mysqli_fetch_assoc($entradas)) :
     ?>
@@ -30,10 +23,7 @@ git pull -> descarga los cambios del remoto
         endwhile;
     endif;
     ?>
-    
-    <div id="ver-todas">
-        <a href="entradas.php">ver todas las entradas</a>
-    </div>
+
 </div><!---fin principal--->
 
 <?php require_once 'includes/pie.php'; ?>
