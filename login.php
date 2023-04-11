@@ -7,7 +7,7 @@ if(isset($_POST)){
 	
 	// Borrar error antiguo
 	if(isset($_SESSION['error_login'])){
-		($_SESSION['error_login']);
+		session_unset($_SESSION['error_login']);
 	}
 			
 	// Recoger datos del formulario

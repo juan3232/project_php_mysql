@@ -1,9 +1,11 @@
-<div class="clearfix"></div>
-</div><!----fin del contenedor --->
-<!--pie de pagina-->
-<footer id="pie">
-    <p>Desarrolado por Juan Hernandez &copy; 2023</p>
-</footer>
-</body>
 
+			<div class="clearfix"></div>
+		</div> <!-- fin contenedor -->
+
+		<!-- PIE DE PÁGINA -->
+		<footer id="pie">
+			<p>Desarrollado por Víctor Robles &copy; 2018</p>
+		</footer>
+		
+	</body>
 </html>
